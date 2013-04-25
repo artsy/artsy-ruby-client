@@ -3,3 +3,11 @@ en:
     client:
       errors:
         messages:
+          configuration_error:
+            message: "Missing or invalid configuration parameter."
+            summary: "A required parameter is missing or invalid: %{key}."
+            resolution: "Please refer to the documentation."
+          server_error:
+            message: "Server error."
+            summary: "Server status code: %{status_code}."
+            resolution: "Something went wrong."

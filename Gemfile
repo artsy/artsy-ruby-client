@@ -2,8 +2,10 @@ source "http://rubygems.org"
 
 gemspec
 
-group :development, :test do
-  gem "rake"
-  gem "bundler"
-  gem "rspec"
+gem "rake"
+
+group :test do
+  gem 'json', :platforms => :ruby_18
+  gem 'rspec', '>= 2.11'
+  gem 'webmock'
 end

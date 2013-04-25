@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.licenses = [ "MIT" ]
   s.summary = "Artsy API Ruby Client."
   s.add_dependency "faraday"
+  s.add_dependency "multi_json"
   s.add_dependency "i18n"
 end
 
