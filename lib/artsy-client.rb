@@ -13,6 +13,8 @@ require 'artsy/client/base'
 require 'artsy/client/response'
 require 'artsy/client/default'
 require 'artsy/client/configurable'
+require 'artsy/client/api'
+require 'artsy/client/domain'
 require 'artsy/client/instance'
 
 module Artsy

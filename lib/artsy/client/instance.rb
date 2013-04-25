@@ -9,6 +9,8 @@ module Artsy
   module Client
     class Instance
       include Artsy::Client::Configurable
+      include Artsy::Client::API::System
+      include Artsy::Client::API::Me
 
       # Initializes a new client instance
       #
@@ -49,7 +51,9 @@ module Artsy
       # @param params [Hash]
       # @return [Proc]
       def request_setup(method, path, params)
-        # TODO
+        Proc.new do |request|
+          request.headers["X_ACCESS_TOKEN"] = @access_token if @access_token
+        end
       end
 
       def request(method, path, params={}, signature_params=params)

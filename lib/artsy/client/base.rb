@@ -10,10 +10,10 @@ module Artsy
         mod = Module.new do
           attrs.each do |attribute|
             define_method attribute do
-              @attrs[attribute.to_sym]
+              @attrs[attribute.to_s]
             end
             define_method "#{attribute}?" do
-              !!@attrs[attribute.to_sym]
+              !!@attrs[attribute.to_s]
             end
           end
         end
@@ -34,14 +34,17 @@ module Artsy
       # @param attrs [Hash]
       # @return [Artsy::Client::Base]
       def initialize(attrs={})
-        @attrs = attrs
+        @attrs = {}
+        attrs.each_pair do |k, v|
+          @attrs[k.to_s] = v
+        end
       end
 
       # Fetches an attribute of an object using hash notation
       #
       # @param method [String, Symbol] Message to send to the object
       def [](method)
-        send(method.to_sym)
+        send(method.to_s)
       rescue NoMethodError
         nil
       end
@@ -61,6 +64,21 @@ module Artsy
       def update(attrs)
         @attrs.update(attrs)
         self
+      end
+
+      def respond_to?(method)
+        super || attrs.has_key(method.to_s)
+      end
+
+    private
+
+      def method_missing(method_name, *args, &block)
+        method_name_s = method_name.to_s
+        if attrs.has_key?(method_name_s)
+          attrs[method_name_s]
+        else
+          super
+        end
       end
 
     protected
