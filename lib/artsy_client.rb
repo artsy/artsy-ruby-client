@@ -1,0 +1,2 @@
+require 'artsy-client'
+
