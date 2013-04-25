@@ -1,4 +1,4 @@
-Artsy::Client [![Build Status](https://travis-ci.org/artsy/artsy-ruby-client.png?branch=master)](https://travis-ci.org/dblock/mongoid-scroll)
+Artsy::Client [![Build Status](https://travis-ci.org/artsy/artsy-ruby-client.png?branch=master)](https://travis-ci.org/artsy/artsy-ruby-client)
 ===============
 
 A Ruby client for the [Artsy](http://artsy.net) API.
