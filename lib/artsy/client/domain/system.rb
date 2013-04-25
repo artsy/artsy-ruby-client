@@ -19,8 +19,8 @@ module Artsy
         private
 
           def method_missing(method_name, *args, &block)
-            return super unless method_name[-1] == '?'
-            attrs[method_name[0..-2].to_s]
+            return super unless method_name.to_s[-1..-1] == '?'
+            attrs[method_name.to_s[0..-2]]
           end
 
       end
