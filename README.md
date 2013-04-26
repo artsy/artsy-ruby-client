@@ -76,6 +76,26 @@ Artsy::Client.recently_published_artworks({ :size => 3 }).each do |artwork|
 end
 ```
 
+Shows
+-----
+
+Shows can be returned in a virtually infinite feed. Each response contains a set of results and a cursor for the next query.
+
+``` ruby
+cursor = nil
+3.times do
+  r = Artsy::Client.shows({ cursor: cursor })
+  r[:results].each do |show|
+    puts "#{show.name}"
+    show.artworks.each do |artwork|
+      puts "  #{artwork.title}, #{artwork.date}"
+    end
+  end
+  cursor = r[:next]
+  break unless cursor
+end
+```
+
 Contributing
 ------------
 

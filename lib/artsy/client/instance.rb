@@ -7,6 +7,7 @@ module Artsy
       include Artsy::Client::API::Me
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
+      include Artsy::Client::API::Show
 
       # Initializes a new client instance
       #
@@ -43,7 +44,7 @@ module Artsy
         configure!
         validate_credentials!
         if @client_id && @client_secret
-          @xapp_token = connection.send(:get, "/api/v1/xapp_token", { 
+          @xapp_token = connection.send(:get, "/api/v1/xapp_token", {
             :client_id => @client_id,
             :client_secret => @client_secret
           }).env[:body]["xapp_token"]
@@ -51,7 +52,7 @@ module Artsy
       end
 
     private
-    
+
       # Returns a proc that can be used to setup the Faraday::Request headers
       #
       # @param method [Symbol]
