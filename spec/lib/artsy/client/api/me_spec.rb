@@ -4,7 +4,7 @@ describe Artsy::Client::API::Me do
   before do
     @client = Artsy::Client::Instance.new
   end
-  describe "me" do
+  describe "#me" do
     before do
       stub_get("/api/v1/me").to_return({
         :body => fixture("me.json"), 

@@ -4,7 +4,7 @@ describe Artsy::Client::API::System do
   before do
     @client = Artsy::Client::Instance.new
   end
-  describe "system/up" do
+  describe "#up" do
     context "all up" do
       before do
         stub_get("/api/v1/system/up").to_return(:body => fixture("up.json"), :headers => {:content_type => "application/json; charset=utf-8"})

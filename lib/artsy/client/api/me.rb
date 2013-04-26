@@ -4,6 +4,9 @@ module Artsy
       module Me
         include Artsy::Client::API::Parse
 
+        # Retrieves the currently logged in user.
+        #
+        # @return [Artsy::Client::Domain::User]        
         def me
           object_from_response(Artsy::Client::Domain::User, :get, "/api/v1/me", {})
         end
