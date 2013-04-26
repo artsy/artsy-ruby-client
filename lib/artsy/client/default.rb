@@ -48,6 +48,21 @@ module Artsy
         end
 
         # @return [String]
+        def xapp_token
+          ENV['ARTSY_API_XAPP_TOKEN']
+        end
+
+        # @return [String]
+        def client_id
+          ENV['ARTSY_API_CLIENT_ID']
+        end
+
+        # @return [String]
+        def client_secret
+          ENV['ARTSY_API_CLIENT_SECRET']
+        end
+
+        # @return [String]
         def endpoint
           ENDPOINT
         end

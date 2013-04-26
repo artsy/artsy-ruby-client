@@ -4,8 +4,9 @@ require 'i18n'
 
 I18n.load_path << File.join(File.dirname(__FILE__), "config", "locales", "en.yml")
 
-require 'forwardable'
 require 'faraday'
+require 'multi_json'
+require 'forwardable'
 
 require 'artsy/client/version'
 require 'artsy/client/errors'
@@ -26,8 +27,7 @@ module Artsy
       #
       # @return [Artsy::Client::Instance]
       def instance
-        @instance = Artsy::Client::Instance.new(options) unless defined?(@instance) && @instance.hash == options.hash
-        @instance
+        @instance ||= Artsy::Client::Instance.new(options)
       end
 
       def respond_to_missing?(method_name, include_private = false)

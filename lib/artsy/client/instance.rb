@@ -1,16 +1,11 @@
 # heavily inspired from https://github.com/sferik/twitter
-
-require 'faraday'
-require 'multi_json'
-require 'base64'
-require 'uri'
-
 module Artsy
   module Client
     class Instance
       include Artsy::Client::Configurable
       include Artsy::Client::API::System
       include Artsy::Client::API::Me
+      include Artsy::Client::API::Artist
 
       # Initializes a new client instance
       #
@@ -23,27 +18,39 @@ module Artsy
       end
 
       # Perform an HTTP DELETE request
-      def delete(path, params={})
+      def delete(path, params = {})
         request(:delete, path, params)
       end
 
       # Perform an HTTP GET request
-      def get(path, params={})
+      def get(path, params = {})
         request(:get, path, params)
       end
 
       # Perform an HTTP POST request
-      def post(path, params={})
+      def post(path, params = {})
         signature_params = params.values.any?{|value| value.respond_to?(:to_io)} ? {} : params
         request(:post, path, params, signature_params)
       end
 
       # Perform an HTTP PUT request
-      def put(path, params={})
+      def put(path, params = {})
         request(:put, path, params)
       end
 
+      def authenticate!
+        configure!
+        validate_credentials!
+        if @client_id && @client_secret
+          instance_variable_set :"@xapp_token", connection.send(:get, "/api/v1/xapp_token", { 
+            client_id: @client_id,
+            client_secret: @client_secret
+          }).env[:body]["xapp_token"]
+        end
+      end
+
     private
+    
       # Returns a proc that can be used to setup the Faraday::Request headers
       #
       # @param method [Symbol]
@@ -52,11 +59,15 @@ module Artsy
       # @return [Proc]
       def request_setup(method, path, params)
         Proc.new do |request|
-          request.headers["X_ACCESS_TOKEN"] = @access_token if @access_token
+          if @access_token
+            request.headers["X_ACCESS_TOKEN"] = @access_token
+          elsif @xapp_token
+            request.headers["X_XAPP_TOKEN"] = @xapp_token
+          end
         end
       end
 
-      def request(method, path, params={}, signature_params=params)
+      def request(method, path, params = {}, signature_params = params)
         request_setup = request_setup(method, path, params)
         connection.send(method.to_sym, path, params, &request_setup).env
       end

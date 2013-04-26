@@ -13,9 +13,23 @@ Getting Started
 
 ``` ruby
 require 'artsy-client'
+```
+
+Authenticate with a client ID and secret.
 
 Artsy::Client.configure do |config|
-  config.access_token = ...
+  config.client_id = ...
+  config.client_secret = ...
+end
+
+Artsy::Client.authenticate! # retrieves a short lived xapp_token
+```
+
+Alternatively, if you have an access token granted for offline access.
+
+``` ruby
+Artsy::Client.configure do |config|
+  config.access_token = ... # access token granted for offline access
 end
 ```
 
@@ -29,9 +43,17 @@ Artsy::Client.up?
 Who am I logged in as?
 ----------------------
 
-```
+``` ruby
 me = Artsy::Client.me
-puts "User: #{me.name} <#{me.email}> (#{me.id})"
+puts "#{me.name} <#{me.email}> (#{me.id})"
+```
+
+Andy Warhol
+-----------
+
+``` ruby
+andy_warhol = Artsy::Client.artist("andy-warhol")
+puts "#{andy_warhol.name}, #{andy_warhol.years}"
 ```
 
 Contributing

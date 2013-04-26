@@ -8,7 +8,7 @@ module Artsy
           when /\A^\s*$\z/, nil
             nil
           else
-            MultiJson.decode(body, :symbolize_keys => true)
+            MultiJson.decode(body)
           end
         end
 

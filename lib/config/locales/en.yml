@@ -3,11 +3,16 @@ en:
     client:
       errors:
         messages:
-          configuration_error:
-            message: "Missing or invalid configuration parameter."
-            summary: "A required parameter is missing or invalid: %{key}."
-            resolution: "Please refer to the documentation."
+          missing_credentials_error:
+            message: "Missing credentials."
+            summary: "One of 'access_token', 'xapp_token' or 'client_id' and 'client_secret' are required."
+            resolution: "You must configure the Artsy client with one of the available authentication schemes.\n
+            \_Example:\n
+            \_\_Artsy::Client.configure do |config|\n
+            \_\_\_config.client_id = 'your client id'\n
+            \_\_\_config.client_secret = 'your client secret'\n
+            \_\_end"
           server_error:
-            message: "Server error."
-            summary: "Server status code: %{status_code}."
-            resolution: "Something went wrong."
+            message: "The server returned an error."
+            summary: "The server returned %{status_code}, %{error}."
+            resolution: "Examine the server error. The complete body returned was %{body}."

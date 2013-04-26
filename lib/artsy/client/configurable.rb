@@ -5,7 +5,7 @@ module Artsy
     module Configurable
       extend Forwardable
 
-      attr_writer :access_token
+      attr_writer :access_token, :xapp_token, :client_id, :client_secret
       attr_accessor :endpoint, :connection_options, :middleware
       def_delegator :options, :hash
 
@@ -14,6 +14,9 @@ module Artsy
         def keys
           @keys ||= [
             :access_token,
+            :xapp_token,
+            :client_id,
+            :client_secret,
             :endpoint,
             :connection_options,
             :middleware,
@@ -23,10 +26,12 @@ module Artsy
       end
 
       def configure
-        yield self
+        yield self if block_given?
         validate_credentials!
         self
       end
+
+      alias configure! configure
 
       def reset!
         Artsy::Client::Configurable.keys.each do |key|
@@ -44,7 +49,13 @@ module Artsy
       end
 
       def validate_credentials!
-        raise Artsy::Client::Errors::ConfigurationError.new({ :key => 'access_token' }) unless @access_token && @access_token.to_s.length > 0
+        if @access_token
+          # access token gives a user login
+        elsif @client_id && @client_secret
+          # client id and secret give access to an xapp token
+        else
+          raise Artsy::Client::Errors::MissingCredentialsError.new
+        end
       end
 
     end
