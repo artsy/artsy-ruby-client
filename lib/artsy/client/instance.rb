@@ -42,9 +42,9 @@ module Artsy
         configure!
         validate_credentials!
         if @client_id && @client_secret
-          instance_variable_set :"@xapp_token", connection.send(:get, "/api/v1/xapp_token", { 
-            client_id: @client_id,
-            client_secret: @client_secret
+          @xapp_token = connection.send(:get, "/api/v1/xapp_token", { 
+            :client_id => @client_id,
+            :client_secret => @client_secret
           }).env[:body]["xapp_token"]
         end
       end
