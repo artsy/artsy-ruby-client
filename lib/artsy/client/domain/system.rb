@@ -2,15 +2,16 @@ module Artsy
   module Client
     module Domain
       class System < Artsy::Client::Base
+        
         def up?
-          attrs.all? do |k, v|
+          size > 0 && all? do |k, v|
             !! v
           end
         end
 
-        def respond_to?(method)
+        def respond_to?(method_name)
           if method_name[-1] == '?'
-            attrs.has_key(method_name[0..-2].to_s)
+            has_key?(method_name[0..-2].to_s)
           else
             super
           end
@@ -19,8 +20,11 @@ module Artsy
         private
 
           def method_missing(method_name, *args, &block)
-            return super unless method_name.to_s[-1..-1] == '?'
-            attrs[method_name.to_s[0..-2]]
+            if method_name.to_s[-1..-1] == '?'
+              !! self[method_name.to_s[0..-2]]
+            else
+              super
+            end
           end
 
       end

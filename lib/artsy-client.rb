@@ -7,6 +7,7 @@ I18n.load_path << File.join(File.dirname(__FILE__), "config", "locales", "en.yml
 require 'faraday'
 require 'multi_json'
 require 'forwardable'
+require 'hashie/mash'
 
 require 'artsy/client/version'
 require 'artsy/client/errors'

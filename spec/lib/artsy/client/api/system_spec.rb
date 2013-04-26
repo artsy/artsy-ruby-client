@@ -9,6 +9,11 @@ describe Artsy::Client::API::System do
       before do
         stub_get("/api/v1/system/up").to_return(:body => fixture("up.json"), :headers => {:content_type => "application/json; charset=utf-8"})
       end
+      it "responds to field methods" do
+        up = @client.up
+        up.respond_to?(:rails?).should be_true
+        up.respond_to?(:monkey?).should be_false
+      end
       it "returns the system status" do
         up = @client.up
         expect(a_get("/api/v1/system/up")).to have_been_made

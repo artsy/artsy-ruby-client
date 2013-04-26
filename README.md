@@ -55,6 +55,18 @@ Andy Warhol
 ``` ruby
 andy_warhol = Artsy::Client.artist("andy-warhol")
 puts "#{andy_warhol.name}, #{andy_warhol.years}"
+
+andy_warhol_skull = Artsy::Client.artwork("andy-warhol-skull")
+puts "#{andy_warhol_skull.title}, #{andy_warhol_skull.date} by #{andy_warhol_skull.artist.name}"
+```
+
+Recently Published Artworks
+---------------------------
+
+``` ruby
+Artsy::Client.recently_published_artworks({ :size => 3 }).each do |artwork|
+  puts "#{artwork.title}, #{artwork.date} by #{artwork.artist.name}"
+end
 ```
 
 Contributing
