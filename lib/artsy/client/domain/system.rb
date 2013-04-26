@@ -2,7 +2,7 @@ module Artsy
   module Client
     module Domain
       class System < Artsy::Client::Base
-        
+
         def up?
           size > 0 && all? do |k, v|
             !! v
@@ -10,8 +10,8 @@ module Artsy
         end
 
         def respond_to?(method_name)
-          if method_name[-1] == '?'
-            has_key?(method_name[0..-2].to_s)
+          if method_name.to_s[-1..-1] == '?'
+            has_key?(method_name.to_s[0..-2])
           else
             super
           end
