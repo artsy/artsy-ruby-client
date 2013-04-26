@@ -9,3 +9,5 @@ require 'webmock/rspec'
 WebMock.disable_net_connect!
 
 require 'stubs'
+
+require 'timecop'

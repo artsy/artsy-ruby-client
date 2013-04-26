@@ -8,4 +8,5 @@ group :test do
   gem 'json', :platforms => :ruby_18
   gem 'rspec', '>= 2.11'
   gem 'webmock'
+  gem 'timecop'
 end

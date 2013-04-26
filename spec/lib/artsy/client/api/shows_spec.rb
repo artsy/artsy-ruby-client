@@ -26,6 +26,11 @@ describe Artsy::Client::API::Show do
       expect(show).to be_a Artsy::Client::Domain::Show
       expect(show.to_s).to eq 'Markus Bacher, "After Eight" | Thomas Kiesewetter, "Neue Skulpturen"'
       expect(show.name).to eq 'Markus Bacher, "After Eight" | Thomas Kiesewetter, "Neue Skulpturen"'
+      Timecop.freeze(Time.local(2013))
+      expect(show.when).to eq "Apr. 25 - May 31"
+      Timecop.freeze(Time.local(2014))
+      expect(show.when).to eq "Apr. 25 - May 31, 2013"
+      expect(show.where).to eq "Berlin"
       partner = show.partner
       expect(partner).to be_a Artsy::Client::Domain::Partner
       expect(partner.to_s).to eq "Contemporary Fine Arts"
