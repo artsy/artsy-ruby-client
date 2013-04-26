@@ -9,8 +9,18 @@ module Artsy
             Artsy::Client::Domain::Artwork, self[:artworks])
         end
 
+        def partner
+          @partner ||= Artsy::Client::Domain::Partner.new(self[:partner]).tap do |partner|
+            partner.instance = instance
+          end
+        end
+
         def name
           self[:name].gsub(/[\n]+/, "\n").strip
+        end
+
+        def to_s
+          name
         end
 
       end

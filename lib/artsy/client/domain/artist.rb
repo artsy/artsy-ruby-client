@@ -4,10 +4,14 @@ module Artsy
       class Artist < Artsy::Client::Base
 
         def artworks(options = {})
-          instance.send(:objects_from_response, instance, 
-            Artsy::Client::Domain::Artwork, 
-            :get, "/api/v1/artist/#{self.id}/artworks", 
+          instance.send(:objects_from_response, instance,
+            Artsy::Client::Domain::Artwork,
+            :get, "/api/v1/artist/#{self.id}/artworks",
             options)
+        end
+
+        def to_s
+          self[:name]
         end
 
       end

@@ -13,6 +13,10 @@ module Artsy
           self[:title].gsub(/[\n]+/, "\n").strip
         end
 
+        def to_s
+          self[:display] || title
+        end
+
       end
     end
   end

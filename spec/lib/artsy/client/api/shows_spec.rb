@@ -22,8 +22,21 @@ describe Artsy::Client::API::Show do
       expect(shows).to be_a Hash
       expect(shows[:results].size).to eq 3
       expect(shows[:next]).to_not be_nil
-      expect(shows[:results].first).to be_a Artsy::Client::Domain::Show
-      expect(shows[:results].first.name).to eq 'Markus Bacher, "After Eight" | Thomas Kiesewetter, "Neue Skulpturen"'
+      show = shows[:results].first
+      expect(show).to be_a Artsy::Client::Domain::Show
+      expect(show.to_s).to eq 'Markus Bacher, "After Eight" | Thomas Kiesewetter, "Neue Skulpturen"'
+      expect(show.name).to eq 'Markus Bacher, "After Eight" | Thomas Kiesewetter, "Neue Skulpturen"'
+      partner = show.partner
+      expect(partner).to be_a Artsy::Client::Domain::Partner
+      expect(partner.to_s).to eq "Contemporary Fine Arts"
+      artworks = show.artworks
+      expect(artworks).to be_an Array
+      artwork = artworks.first
+      expect(artwork).to be_a Artsy::Client::Domain::Artwork
+      artist = artwork.artist
+      expect(artist).to be_a Artsy::Client::Domain::Artist
+      expect(artist.to_s).to eq "Markus Bacher"
+      expect(artwork.to_s).to eq "Markus Bacher, Dogs Bollogs (2012-2013)"
       # next request
       shows2 = @client.shows({ :cursor => shows[:next] })
       expect(a_get("/api/v1/shows/feed?cursor=1366965419:5177dda3a2cb6053a8000023")).to have_been_made

@@ -7,7 +7,7 @@ describe Artsy::Client::API::Artwork do
   describe "#artwork" do
     before do
       stub_get("/api/v1/artwork/andy-warhol-skull").to_return({
-        :body => fixture("artwork.json"), 
+        :body => fixture("artwork.json"),
         :headers => { :content_type => "application/json; charset=utf-8" }
       })
     end
@@ -22,7 +22,7 @@ describe Artsy::Client::API::Artwork do
   describe "#artworks" do
     before do
       stub_get("/api/v1/artworks/new").to_return({
-        :body => fixture("artworks.json"), 
+        :body => fixture("artworks.json"),
         :headers => { :content_type => "application/json; charset=utf-8" }
       })
     end
