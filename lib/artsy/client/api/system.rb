@@ -8,7 +8,7 @@ module Artsy
         #
         # @return [Artsy::Client::Domain::System]        
         def up
-          object_from_response(Artsy::Client::Domain::System, :get, "/api/v1/system/up", {})
+          object_from_response(self, Artsy::Client::Domain::System, :get, "/api/v1/system/up", {})
         end
 
         # Returns whether artsy.net is up.

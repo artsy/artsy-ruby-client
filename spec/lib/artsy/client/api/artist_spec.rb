@@ -17,6 +17,21 @@ describe Artsy::Client::API::Artist do
       expect(artist).to be_an Artsy::Client::Domain::Artist
       expect(artist.name).to eq "Andy Warhol"
     end
+    context "#artworks" do
+      before do
+        stub_get("/api/v1/artist/andy-warhol/artworks").to_return({
+          :body => fixture("artist/artworks.json"), 
+          :headers => { :content_type => "application/json; charset=utf-8" }
+        })
+      end
+      it "returns artist's artworks" do
+        artist = @client.artist('andy-warhol')
+        artworks = artist.artworks
+        expect(artworks).to be_an Array
+        expect(artworks.size).to eq 3
+        expect(artworks.first.artist.name).to eq artist.name
+      end
+    end
   end
   describe "#artists" do
     before do
