@@ -44,6 +44,7 @@ module Artsy
         configure!
         validate_credentials!
         if @client_id && @client_secret
+          @logger.debug "GET /api/v1/xapp_token?client_id=#{CGI.escape(@client_id)}&client_secret=#{CGI.escape(@client_secret)}" if @logger
           @xapp_token = connection.send(:get, "/api/v1/xapp_token", {
             :client_id => @client_id,
             :client_secret => @client_secret
@@ -52,7 +53,7 @@ module Artsy
       end
 
     private
-
+    
       # Returns a proc that can be used to setup the Faraday::Request headers
       #
       # @param method [Symbol]
@@ -62,9 +63,18 @@ module Artsy
       def request_setup(method, path, params)
         Proc.new do |request|
           if @access_token
-            request.headers["X_ACCESS_TOKEN"] = @access_token
+            request.headers["X-ACCESS-TOKEN"] = @access_token
           elsif @xapp_token
-            request.headers["X_XAPP_TOKEN"] = @xapp_token
+            request.headers["X-XAPP-TOKEN"] = @xapp_token
+          end
+          if @logger
+            params_s = ("?" + params.select { |k, v| k }.map { |k, v| 
+              "#{k}=#{CGI.escape(v.to_s)}" 
+            }.join("&")) if params.any?
+            @logger.info "#{method.upcase} #{path}#{params_s}"
+            request.headers.each_pair do |k, v|
+              @logger.debug " #{k}: #{v}"
+            end
           end
         end
       end

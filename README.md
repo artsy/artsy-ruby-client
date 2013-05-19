@@ -96,6 +96,18 @@ cursor = nil
 end
 ```
 
+Logging
+-------
+
+Setup verbose logging.
+
+``` ruby
+Artsy::Client.configure do |config|
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger::DEBUG
+end
+```
+
 Contributing
 ------------
 

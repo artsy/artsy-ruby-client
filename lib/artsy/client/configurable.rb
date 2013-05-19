@@ -6,7 +6,7 @@ module Artsy
       extend Forwardable
 
       attr_writer :access_token, :xapp_token, :client_id, :client_secret
-      attr_accessor :endpoint, :connection_options, :middleware
+      attr_accessor :endpoint, :connection_options, :middleware, :logger
       def_delegator :options, :hash
 
       class << self
@@ -20,6 +20,7 @@ module Artsy
             :endpoint,
             :connection_options,
             :middleware,
+            :logger
           ]
         end
 

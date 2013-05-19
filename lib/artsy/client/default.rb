@@ -79,6 +79,11 @@ module Artsy
           MIDDLEWARE
         end
 
+        # @return [Logger]
+        def logger
+          nil
+        end
+
       end
     end
   end

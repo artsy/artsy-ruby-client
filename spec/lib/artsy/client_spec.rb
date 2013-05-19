@@ -63,7 +63,8 @@ describe Artsy::Client do
             :client_id => "CI2",
             :client_secret => "CS2",
             :endpoint => 'http://tumblr.com/',
-            :middleware => Proc.new { }
+            :middleware => Proc.new { },
+            :logger => Logger.new(STDOUT)
           }
         end
         context "during initialization" do
