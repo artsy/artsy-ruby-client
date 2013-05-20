@@ -8,6 +8,7 @@ module Artsy
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::Show
+      include Artsy::Client::API::Partner
 
       # Initializes a new client instance
       #

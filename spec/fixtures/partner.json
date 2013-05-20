@@ -1,0 +1,15 @@
+{
+"id": "bitforms-gallery",
+"default_profile_id": "bitforms-gallery",
+"sortable_id": "bitforms-gallery",
+"type": "Gallery",
+"name": "bitforms gallery",
+"is_public": false,
+"website": "http://www.bitforms.com/",
+"email": "",
+"artists_count": 24,
+"artworks_count": 361,
+"artist_documents_count": 0,
+"partner_show_documents_count": 2,
+"region": "North America"
+}
