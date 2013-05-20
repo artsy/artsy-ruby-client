@@ -14,25 +14,41 @@ describe Artsy::Client do
   end
   context "with client id and secret" do
     subject do
-      Artsy::Client::Instance.new({ 
+      Artsy::Client::Instance.new({
         :client_id => "CI",
         :client_secret => "CS"
       })
     end
     it "#authenticate!" do
       stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return({
-        :body => fixture("xapp_token.json"), 
+        :body => fixture("xapp_token.json"),
         :headers => { :content_type => "application/json; charset=utf-8" }
       })
       subject.authenticate!
       subject.instance_variable_get(:"@xapp_token").should == "xapp token"
     end
+    context "with logger" do
+      before :each do
+        @io = StringIO.new
+        logger = Logger.new(@io)
+        logger.level = Logger::DEBUG
+        subject.logger = logger
+      end
+      it "logs connection attempts" do
+        stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return({
+          :body => fixture("xapp_token.json"),
+          :headers => { :content_type => "application/json; charset=utf-8" }
+        })
+        subject.authenticate!
+        @io.string.should include "GET /api/v1/xapp_token?client_id=CI&client_secret=CS"
+      end
+    end
   end
   context "configured instance" do
     subject do
-      Artsy::Client::Instance.new({ 
-        :access_token => "AT", 
-        :xapp_token => "XT", 
+      Artsy::Client::Instance.new({
+        :access_token => "AT",
+        :xapp_token => "XT",
         :client_id => "CI",
         :client_secret => "CS"
       })
@@ -59,7 +75,7 @@ describe Artsy::Client do
           @configuration = {
             :connection_options => {:timeout => 10},
             :access_token => 'AT2',
-            :xapp_token => "XT2", 
+            :xapp_token => "XT2",
             :client_id => "CI2",
             :client_secret => "CS2",
             :endpoint => 'http://tumblr.com/',
