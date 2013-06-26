@@ -9,6 +9,7 @@ module Artsy
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::Show
       include Artsy::Client::API::Partner
+      include Artsy::Client::API::Profile
 
       # Initializes a new client instance
       #
@@ -54,7 +55,7 @@ module Artsy
       end
 
     private
-    
+
       # Returns a proc that can be used to setup the Faraday::Request headers
       #
       # @param method [Symbol]
@@ -69,8 +70,8 @@ module Artsy
             request.headers["X-XAPP-TOKEN"] = @xapp_token
           end
           if @logger
-            params_s = ("?" + params.select { |k, v| k }.map { |k, v| 
-              "#{k}=#{CGI.escape(v.to_s)}" 
+            params_s = ("?" + params.select { |k, v| k }.map { |k, v|
+              "#{k}=#{CGI.escape(v.to_s)}"
             }.join("&")) if params.any?
             @logger.info "#{method.upcase} #{path}#{params_s}"
             request.headers.each_pair do |k, v|

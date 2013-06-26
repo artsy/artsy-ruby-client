@@ -5,3 +5,5 @@ require 'artsy/client/api/artist'
 require 'artsy/client/api/artwork'
 require 'artsy/client/api/show'
 require 'artsy/client/api/partner'
+require 'artsy/client/api/profile'
+
