@@ -52,7 +52,7 @@ module Artsy
             end
             month_and_date
           else
-            "#{starts_month} #{starts.day}, #{starts.year} - #{ends_month} #{ends.day} #{ends.year}"
+            "#{starts_month} #{starts.day}, #{starts.year} - #{end_month} #{ends.day} #{ends.year}"
           end
         end
 
