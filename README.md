@@ -1,4 +1,4 @@
-Artsy::Client [![Build Status](https://travis-ci.org/artsy/artsy-ruby-client.png?branch=master)](https://travis-ci.org/artsy/artsy-ruby-client) [![Code Climate](https://codeclimate.com/repos/5203cc3f56b1021c4c000f9b/badges/9dfb65e439c92a8505cc/gpa.png)](https://codeclimate.com/repos/5203cc3f56b1021c4c000f9b/feed)
+Artsy::Client [![Build Status](https://travis-ci.org/artsy/artsy-ruby-client.png?branch=master)](https://travis-ci.org/artsy/artsy-ruby-client) [![Code Climate](https://codeclimate.com/github/artsy/artsy-ruby-client.png)](https://codeclimate.com/github/artsy/artsy-ruby-client)
 ===============
 
 A Ruby client for the [Artsy](http://artsy.net) API.
