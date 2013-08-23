@@ -10,6 +10,7 @@ module Artsy
       include Artsy::Client::API::Show
       include Artsy::Client::API::Partner
       include Artsy::Client::API::Profile
+      include Artsy::Client::API::Post
 
       # Initializes a new client instance
       #

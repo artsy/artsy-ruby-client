@@ -96,6 +96,23 @@ cursor = nil
 end
 ```
 
+Featured Posts
+--------------
+
+Featured posts can be returned in a virtually infinite feed. Each response contains a set of results and a cursor for the next query.
+
+``` ruby
+cursor = nil
+3.times do
+  r = Artsy::Client.featured_posts({ cursor: cursor })
+  r[:results].each do |post|
+    puts "#{post.title}"
+  end
+  cursor = r[:next]
+  break unless cursor
+end
+```
+
 Logging
 -------
 

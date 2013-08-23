@@ -6,4 +6,4 @@ require 'artsy/client/api/artwork'
 require 'artsy/client/api/show'
 require 'artsy/client/api/partner'
 require 'artsy/client/api/profile'
-
+require 'artsy/client/api/post'

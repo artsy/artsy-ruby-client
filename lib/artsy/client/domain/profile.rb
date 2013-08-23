@@ -15,7 +15,7 @@ module Artsy
         end
 
         def to_s
-          self[:name]
+          self[:id]
         end
 
       end
