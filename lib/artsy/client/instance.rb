@@ -11,6 +11,7 @@ module Artsy
       include Artsy::Client::API::Partner
       include Artsy::Client::API::Profile
       include Artsy::Client::API::Post
+      include Artsy::Client::API::SearchQuery
 
       # Initializes a new client instance
       #

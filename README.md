@@ -113,6 +113,17 @@ cursor = nil
 end
 ```
 
+Autocomplete
+------------
+
+Autocomplete search terms.
+
+``` ruby
+Artsy::Client.autocomplete('andy warhol').each do |search_query|
+  puts search_query.query
+end
+```
+
 Logging
 -------
 
