@@ -29,7 +29,7 @@ describe Artsy::Client::API::Profile do
       # profile
       profile = post.profile
       expect(profile).to be_a Artsy::Client::Domain::Profile
-      expect(profile.to_s).to eq "editorial"
+      expect(profile.to_s).to eq "Artsy Editorial"
       expect(profile.posts_count).to eq 549
     end
   end

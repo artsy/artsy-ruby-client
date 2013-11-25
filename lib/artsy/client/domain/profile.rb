@@ -15,7 +15,7 @@ module Artsy
         end
 
         def to_s
-          self[:id]
+          self[:owner] ? self[:owner][:name] : self[:id]
         end
 
       end
