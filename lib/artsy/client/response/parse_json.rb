@@ -2,7 +2,6 @@ module Artsy
   module Client
     module Response
       class ParseJson < Faraday::Response::Middleware
-
         def parse(body)
           case body
           when /\A^\s*$\z/, nil
@@ -17,7 +16,6 @@ module Artsy
             env[:body] = parse(env[:body]) unless [204, 301, 302, 304].include?(env[:status])
           end
         end
-
       end
     end
   end

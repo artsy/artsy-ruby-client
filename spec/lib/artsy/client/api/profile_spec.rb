@@ -6,10 +6,10 @@ describe Artsy::Client::API::Profile do
   end
   describe "#profile" do
     before do
-      stub_get("/api/v1/profile/art21").to_return({
-        :body => fixture("profile.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/profile/art21").to_return(
+        body: fixture("profile.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns profile" do
       profile = @client.profile('art21')

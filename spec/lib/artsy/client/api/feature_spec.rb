@@ -6,10 +6,10 @@ describe Artsy::Client::API::Feature do
   end
   describe "#feature" do
     before do
-      stub_get("/api/v1/feature/two-x-two").to_return({
-        :body => fixture("feature.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/feature/two-x-two").to_return(
+        body: fixture("feature.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns feature" do
       feature = @client.feature('two-x-two')

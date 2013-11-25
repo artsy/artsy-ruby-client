@@ -31,7 +31,6 @@ module Artsy
         def to_s
           title
         end
-
       end
     end
   end

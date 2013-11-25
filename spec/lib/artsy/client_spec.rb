@@ -14,16 +14,16 @@ describe Artsy::Client do
   end
   context "with client id and secret" do
     subject do
-      Artsy::Client::Instance.new({
-        :client_id => "CI",
-        :client_secret => "CS"
-      })
+      Artsy::Client::Instance.new(
+        client_id: "CI",
+        client_secret: "CS"
+      )
     end
     it "#authenticate!" do
-      stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return({
-        :body => fixture("xapp_token.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return(
+        body: fixture("xapp_token.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
       subject.authenticate!
       subject.instance_variable_get(:"@xapp_token").should == "xapp token"
     end
@@ -35,10 +35,10 @@ describe Artsy::Client do
         subject.logger = logger
       end
       it "logs connection attempts" do
-        stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return({
-          :body => fixture("xapp_token.json"),
-          :headers => { :content_type => "application/json; charset=utf-8" }
-        })
+        stub_get("/api/v1/xapp_token?client_id=CI&client_secret=CS").to_return(
+          body: fixture("xapp_token.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
         subject.authenticate!
         @io.string.should include "GET /api/v1/xapp_token?client_id=CI&client_secret=CS"
       end
@@ -46,12 +46,12 @@ describe Artsy::Client do
   end
   context "configured instance" do
     subject do
-      Artsy::Client::Instance.new({
-        :access_token => "AT",
-        :xapp_token => "XT",
-        :client_id => "CI",
-        :client_secret => "CS"
-      })
+      Artsy::Client::Instance.new(
+        access_token: "AT",
+        xapp_token: "XT",
+        client_id: "CI",
+        client_secret: "CS"
+      )
     end
     context "with module configuration" do
       before do
@@ -73,14 +73,14 @@ describe Artsy::Client do
       context "with class configuration" do
         before do
           @configuration = {
-            :connection_options => {:timeout => 10},
-            :access_token => 'AT2',
-            :xapp_token => "XT2",
-            :client_id => "CI2",
-            :client_secret => "CS2",
-            :endpoint => 'http://tumblr.com/',
-            :middleware => Proc.new { },
-            :logger => Logger.new(STDOUT)
+            connection_options: { timeout: 10 },
+            access_token: 'AT2',
+            xapp_token: "XT2",
+            client_id: "CI2",
+            client_secret: "CS2",
+            endpoint: 'http://tumblr.com/',
+            middleware: proc {},
+            logger: Logger.new(STDOUT)
           }
         end
         context "during initialization" do
@@ -108,20 +108,20 @@ describe Artsy::Client do
     end
     describe "#delete" do
       before do
-        stub_delete("/custom/delete").with(:query => {:deleted => "object"})
+        stub_delete("/custom/delete").with(query: { deleted: "object" })
       end
       it "allows custom delete requests" do
-        subject.delete("/custom/delete", {:deleted => "object"})
-        expect(a_delete("/custom/delete").with(:query => {:deleted => "object"})).to have_been_made
+        subject.delete("/custom/delete",  deleted: "object")
+        expect(a_delete("/custom/delete").with(query: { deleted: "object" })).to have_been_made
       end
     end
     describe "#put" do
       before do
-        stub_put("/custom/put").with(:body => {:updated => "object"})
+        stub_put("/custom/put").with(body: { updated: "object" })
       end
       it "allows custom put requests" do
-        subject.put("/custom/put", {:updated => "object"})
-        expect(a_put("/custom/put").with(:body => {:updated => "object"})).to have_been_made
+        subject.put("/custom/put",  updated: "object")
+        expect(a_put("/custom/put").with(body: { updated: "object" })).to have_been_made
       end
     end
     describe "#connection" do

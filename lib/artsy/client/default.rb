@@ -3,20 +3,19 @@
 module Artsy
   module Client
     module Default
-
       ENDPOINT = 'https://artsyapi.com' unless defined? Artsy::Client::Default::ENDPOINT
 
       CONNECTION_OPTIONS = {
-        :headers => {
-          :accept => 'application/json',
-          :user_agent => "Artsy Client Ruby Gem #{Artsy::Client::VERSION}",
+        headers: {
+          accept: 'application/json',
+          user_agent: "Artsy Client Ruby Gem #{Artsy::Client::VERSION}",
         },
-        :request => {
-          :open_timeout => 5,
-          :timeout => 10,
+        request: {
+          open_timeout: 5,
+          timeout: 10,
         },
-        :ssl => {
-          :verify => false
+        ssl: {
+          verify: false
         },
       } unless defined? Artsy::Client::Default::CONNECTION_OPTIONS
 
@@ -36,10 +35,9 @@ module Artsy
       end unless defined? Artsy::Client::Default::MIDDLEWARE
 
       class << self
-
         # @return [Hash]
         def options
-          Hash[Artsy::Client::Configurable.keys.map{ |key| [key, send(key)] }]
+          Hash[Artsy::Client::Configurable.keys.map { |key| [key, send(key)] }]
         end
 
         # @return [String]
@@ -83,7 +81,6 @@ module Artsy
         def logger
           nil
         end
-
       end
     end
   end

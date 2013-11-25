@@ -6,10 +6,10 @@ describe Artsy::Client::API::Partner do
   end
   describe "#partner" do
     before do
-      stub_get("/api/v1/partner/bitforms-gallery").to_return({
-        :body => fixture("partner.json"), 
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/partner/bitforms-gallery").to_return(
+        body: fixture("partner.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns partner" do
       partner = @client.partner('bitforms-gallery')

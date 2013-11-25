@@ -2,7 +2,6 @@ module Artsy
   module Client
     module Domain
       class Profile < Artsy::Client::Base
-
         def owner
           @owner ||= begin
             case owner_type
@@ -17,7 +16,6 @@ module Artsy
         def to_s
           self[:owner] ? self[:owner][:name] : self[:id]
         end
-
       end
     end
   end

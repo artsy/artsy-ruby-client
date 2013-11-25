@@ -6,10 +6,10 @@ describe Artsy::Client::API::Tag do
   end
   describe "#tag" do
     before do
-      stub_get("/api/v1/tag/cow").to_return({
-        :body => fixture("tag.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/tag/cow").to_return(
+        body: fixture("tag.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns tag" do
       tag = @client.tag('cow')

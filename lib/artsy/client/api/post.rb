@@ -10,7 +10,6 @@ module Artsy
         def featured_posts(options = {})
           objects_from_response_feed(self, Artsy::Client::Domain::Post, :get, "/api/v1/posts/featured/feed", options)
         end
-
       end
     end
   end

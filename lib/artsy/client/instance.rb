@@ -21,7 +21,7 @@ module Artsy
       #
       # @param options [Hash]
       # @return [Artsy::Client::Instance]
-      def initialize(options={})
+      def initialize(options = {})
         Artsy::Client::Configurable.keys.each do |key|
           instance_variable_set(:"@#{key}", options[key] || Artsy::Client.instance_variable_get(:"@#{key}"))
         end
@@ -39,7 +39,7 @@ module Artsy
 
       # Perform an HTTP POST request
       def post(path, params = {})
-        signature_params = params.values.any?{|value| value.respond_to?(:to_io)} ? {} : params
+        signature_params = params.values.any? { |value| value.respond_to?(:to_io) } ? {} : params
         request(:post, path, params, signature_params)
       end
 
@@ -53,14 +53,14 @@ module Artsy
         validate_credentials!
         if @client_id && @client_secret
           @logger.debug "GET /api/v1/xapp_token?client_id=#{CGI.escape(@client_id)}&client_secret=#{CGI.escape(@client_secret)}" if @logger
-          @xapp_token = connection.send(:get, "/api/v1/xapp_token", {
-            :client_id => @client_id,
-            :client_secret => @client_secret
-          }).env[:body]["xapp_token"]
+          @xapp_token = connection.send(:get, "/api/v1/xapp_token",
+                                        client_id: @client_id,
+                                        client_secret: @client_secret
+          ).env[:body]["xapp_token"]
         end
       end
 
-    private
+      private
 
       # Returns a proc that can be used to setup the Faraday::Request headers
       #
@@ -69,7 +69,7 @@ module Artsy
       # @param params [Hash]
       # @return [Proc]
       def request_setup(method, path, params)
-        Proc.new do |request|
+        proc do |request|
           if @access_token
             request.headers["X-ACCESS-TOKEN"] = @access_token
           elsif @xapp_token
@@ -97,8 +97,8 @@ module Artsy
       # @return [Faraday::Connection]
       def connection
         @connection ||= begin
-          connection_options = { :builder => @middleware }
-          connection_options[:ssl] = { :verify => true } if @endpoint[0..4] == 'https'
+          connection_options = { builder: @middleware }
+          connection_options[:ssl] = { verify: true } if @endpoint[0..4] == 'https'
           Faraday.new(@endpoint, @connection_options.merge(connection_options))
         end
       end

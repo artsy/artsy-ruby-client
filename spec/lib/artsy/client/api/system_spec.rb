@@ -7,7 +7,7 @@ describe Artsy::Client::API::System do
   describe "#up" do
     context "all up" do
       before do
-        stub_get("/api/v1/system/up").to_return(:body => fixture("up.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/api/v1/system/up").to_return(body: fixture("up.json"), headers: { content_type: "application/json; charset=utf-8" })
       end
       it "responds to field methods" do
         up = @client.up
@@ -26,7 +26,7 @@ describe Artsy::Client::API::System do
     end
     context "one down" do
       before do
-        stub_get("/api/v1/system/up").to_return(:body => fixture("down.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/api/v1/system/up").to_return(body: fixture("down.json"), headers: { content_type: "application/json; charset=utf-8" })
       end
       it "returns the system status" do
         up = @client.up

@@ -6,7 +6,7 @@ module Artsy
 
         # Retrieves system up information.
         #
-        # @return [Artsy::Client::Domain::System]        
+        # @return [Artsy::Client::Domain::System]
         def up
           object_from_response(self, Artsy::Client::Domain::System, :get, "/api/v1/system/up", {})
         end
@@ -19,7 +19,6 @@ module Artsy
         rescue
           false
         end
-
       end
     end
   end

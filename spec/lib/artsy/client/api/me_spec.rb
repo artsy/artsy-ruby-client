@@ -6,10 +6,10 @@ describe Artsy::Client::API::Me do
   end
   describe "#me" do
     before do
-      stub_get("/api/v1/me").to_return({
-        :body => fixture("me.json"), 
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/me").to_return(
+        body: fixture("me.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns me" do
       me = @client.me

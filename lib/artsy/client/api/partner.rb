@@ -6,11 +6,10 @@ module Artsy
 
         # Retrieves a partner.
         #
-        # @return [Artsy::Client::Domain::Partner]        
+        # @return [Artsy::Client::Domain::Partner]
         def partner(id)
           object_from_response(self, Artsy::Client::Domain::Partner, :get, "/api/v1/partner/#{id}", {})
         end
-
       end
     end
   end

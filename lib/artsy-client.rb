@@ -45,11 +45,10 @@ module Artsy
 
       private
 
-        def method_missing(method_name, *args, &block)
-          return super unless instance.respond_to?(method_name)
-          instance.send(method_name, *args, &block)
-        end
-
+      def method_missing(method_name, *args, &block)
+        return super unless instance.respond_to?(method_name)
+        instance.send(method_name, *args, &block)
+      end
     end
   end
 end

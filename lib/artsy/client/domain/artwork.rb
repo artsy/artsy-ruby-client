@@ -2,7 +2,6 @@ module Artsy
   module Client
     module Domain
       class Artwork < Artsy::Client::Base
-
         def artist
           @artist ||= Artsy::Client::Domain::Artist.new(self[:artist]).tap do |artist|
             artist.instance = instance
@@ -16,7 +15,6 @@ module Artsy
         def to_s
           self[:display] || title
         end
-
       end
     end
   end

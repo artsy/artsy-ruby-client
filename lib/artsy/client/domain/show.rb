@@ -6,7 +6,7 @@ module Artsy
 
         def artworks
           @artworks ||= objects_from_array(instance,
-            Artsy::Client::Domain::Artwork, self[:artworks])
+                                           Artsy::Client::Domain::Artwork, self[:artworks])
         end
 
         def partner
@@ -59,7 +59,6 @@ module Artsy
         def where
           location.to_s if location
         end
-
       end
     end
   end

@@ -6,10 +6,10 @@ describe Artsy::Client::API::Artist do
   end
   describe "#artist" do
     before do
-      stub_get("/api/v1/artist/andy-warhol").to_return({
-        :body => fixture("artist.json"), 
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/artist/andy-warhol").to_return(
+        body: fixture("artist.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns artist" do
       artist = @client.artist('andy-warhol')
@@ -19,10 +19,10 @@ describe Artsy::Client::API::Artist do
     end
     context "#artworks" do
       before do
-        stub_get("/api/v1/artist/andy-warhol/artworks").to_return({
-          :body => fixture("artist/artworks.json"), 
-          :headers => { :content_type => "application/json; charset=utf-8" }
-        })
+        stub_get("/api/v1/artist/andy-warhol/artworks").to_return(
+          body: fixture("artist/artworks.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
       end
       it "returns artist's artworks" do
         artist = @client.artist('andy-warhol')
@@ -35,10 +35,10 @@ describe Artsy::Client::API::Artist do
   end
   describe "#artists" do
     before do
-      stub_get("/api/v1/artists/sample").to_return({
-        :body => fixture("artists.json"), 
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/artists/sample").to_return(
+        body: fixture("artists.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns artist" do
       artists = @client.artists

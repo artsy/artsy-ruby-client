@@ -10,7 +10,6 @@ module Artsy
       def_delegator :options, :hash
 
       class << self
-
         def keys
           @keys ||= [
             :access_token,
@@ -23,7 +22,6 @@ module Artsy
             :logger
           ]
         end
-
       end
 
       def configure
@@ -32,7 +30,7 @@ module Artsy
         self
       end
 
-      alias configure! configure
+      alias_method :configure!, :configure
 
       def reset!
         Artsy::Client::Configurable.keys.each do |key|
@@ -41,12 +39,12 @@ module Artsy
         self
       end
 
-      alias setup reset!
+      alias_method :setup, :reset!
 
-    private
+      private
 
       def options
-        Hash[Artsy::Client::Configurable.keys.map{|key| [key, instance_variable_get(:"@#{key}")]}]
+        Hash[Artsy::Client::Configurable.keys.map { |key| [key, instance_variable_get(:"@#{key}")] }]
       end
 
       def validate_credentials!
@@ -58,7 +56,6 @@ module Artsy
           raise Artsy::Client::Errors::MissingCredentialsError.new
         end
       end
-
     end
   end
 end

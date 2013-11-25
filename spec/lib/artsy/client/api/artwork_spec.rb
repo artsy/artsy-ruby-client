@@ -6,10 +6,10 @@ describe Artsy::Client::API::Artwork do
   end
   describe "#artwork" do
     before do
-      stub_get("/api/v1/artwork/andy-warhol-skull").to_return({
-        :body => fixture("artwork.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/artwork/andy-warhol-skull").to_return(
+        body: fixture("artwork.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns artwork" do
       artwork = @client.artwork('andy-warhol-skull')
@@ -21,10 +21,10 @@ describe Artsy::Client::API::Artwork do
   end
   describe "#artworks" do
     before do
-      stub_get("/api/v1/artworks/new").to_return({
-        :body => fixture("artworks.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/artworks/new").to_return(
+        body: fixture("artworks.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns artwork" do
       artworks = @client.recently_published_artworks

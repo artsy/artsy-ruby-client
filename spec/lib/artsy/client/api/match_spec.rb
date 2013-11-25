@@ -6,10 +6,10 @@ describe Artsy::Client::API::Match do
   end
   describe "#match" do
     before do
-      stub_get("/api/v1/match?term=andy").to_return({
-        :body => fixture("match.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/match?term=andy").to_return(
+        body: fixture("match.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
       {
         "andy-warhol-limited-edition-prints-and-polaroids" => :feature,
         "andy-warhol-presented-by-christies" => :feature,
@@ -22,10 +22,10 @@ describe Artsy::Client::API::Match do
         "andy-cross" => :artist,
         "andy-yoder" => :artist
       }.each_pair do |id, klass|
-        stub_get("/api/v1/#{klass}/#{id}").to_return({
-          :body => fixture("#{klass}.json"),
-          :headers => { :content_type => "application/json; charset=utf-8" }
-        })
+        stub_get("/api/v1/#{klass}/#{id}").to_return(
+          body: fixture("#{klass}.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
       end
     end
     it "returns matching instances" do

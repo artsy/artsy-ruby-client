@@ -7,4 +7,3 @@ Artsy::Client.authenticate!
 
 andy_warhol = Artsy::Client.artist("andy-warhol")
 puts "#{andy_warhol.name}, #{andy_warhol.years}"
-

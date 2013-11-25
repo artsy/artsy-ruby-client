@@ -6,10 +6,10 @@ describe Artsy::Client::API::SearchQuery do
   end
   describe "#search_queries" do
     before do
-      stub_get("/api/v1/autocomplete?term=").to_return({
-        :body => fixture("autocomplete.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/autocomplete?term=").to_return(
+        body: fixture("autocomplete.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns search queries" do
       search_queries = @client.autocomplete

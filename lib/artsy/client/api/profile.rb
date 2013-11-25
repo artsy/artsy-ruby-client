@@ -10,7 +10,6 @@ module Artsy
         def profile(id)
           object_from_response(self, Artsy::Client::Domain::Profile, :get, "/api/v1/profile/#{id}", {})
         end
-
       end
     end
   end

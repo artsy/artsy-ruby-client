@@ -6,10 +6,10 @@ describe Artsy::Client::API::Profile do
   end
   describe "#post" do
     before do
-      stub_get("/api/v1/posts/featured/feed").to_return({
-        :body => fixture("featured_posts.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/posts/featured/feed").to_return(
+        body: fixture("featured_posts.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns a feed of posts" do
       posts = @client.featured_posts

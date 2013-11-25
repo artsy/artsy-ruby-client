@@ -7,14 +7,14 @@ describe Artsy::Client::API::Show do
   describe "#shows" do
     context "with cursor" do
       before do
-        stub_get("/api/v1/shows/feed").to_return({
-          :body => fixture("shows.1.json"),
-          :headers => { :content_type => "application/json; charset=utf-8" }
-        })
-        stub_get("/api/v1/shows/feed?cursor=1366965419:5177dda3a2cb6053a8000023").to_return({
-          :body => fixture("shows.2.json"),
-          :headers => { :content_type => "application/json; charset=utf-8" }
-        })
+        stub_get("/api/v1/shows/feed").to_return(
+          body: fixture("shows.1.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
+        stub_get("/api/v1/shows/feed?cursor=1366965419:5177dda3a2cb6053a8000023").to_return(
+          body: fixture("shows.2.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
       end
       it "returns shows" do
         # first request
@@ -44,7 +44,7 @@ describe Artsy::Client::API::Show do
         expect(artist.to_s).to eq "Markus Bacher"
         expect(artwork.to_s).to eq "Markus Bacher, Dogs Bollogs (2012-2013)"
         # next request
-        shows2 = @client.shows({ :cursor => shows[:next] })
+        shows2 = @client.shows(cursor: shows[:next])
         expect(a_get("/api/v1/shows/feed?cursor=1366965419:5177dda3a2cb6053a8000023")).to have_been_made
         expect(shows2).to be_a Hash
         expect(shows2[:results].size).to eq 3
@@ -56,10 +56,10 @@ describe Artsy::Client::API::Show do
   end
   context "spanning mutliple years" do
     before do
-      stub_get("/api/v1/shows/feed").to_return({
-        :body => fixture("shows.3.json"),
-        :headers => { :content_type => "application/json; charset=utf-8" }
-      })
+      stub_get("/api/v1/shows/feed").to_return(
+        body: fixture("shows.3.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
     end
     it "returns shows that span multiple years" do
       # first request

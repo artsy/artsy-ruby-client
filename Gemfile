@@ -4,9 +4,10 @@ gemspec
 
 gem "rake"
 
-group :test do
+group :development, :test do
   gem 'json', :platforms => :ruby_18
   gem 'rspec', '>= 2.11'
   gem 'webmock'
   gem 'timecop'
+  gem 'rubocop', '~> 0.15.0'
 end
