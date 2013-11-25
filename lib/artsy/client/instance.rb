@@ -15,6 +15,7 @@ module Artsy
       include Artsy::Client::API::Match
       include Artsy::Client::API::Feature
       include Artsy::Client::API::Gene
+      include Artsy::Client::API::Tag
 
       # Initializes a new client instance
       #
