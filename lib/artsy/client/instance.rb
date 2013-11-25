@@ -12,6 +12,9 @@ module Artsy
       include Artsy::Client::API::Profile
       include Artsy::Client::API::Post
       include Artsy::Client::API::SearchQuery
+      include Artsy::Client::API::Match
+      include Artsy::Client::API::Feature
+      include Artsy::Client::API::Gene
 
       # Initializes a new client instance
       #
