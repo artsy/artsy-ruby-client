@@ -4,11 +4,18 @@ module Artsy
       module Show
         include Artsy::Client::API::Parse
 
-        # Retrieves recent shows.
+        # Retrieves a show.
         #
-        # @return [Hash]
+        # @return [Artsy::Client::Domain::Show]
+        def show(id)
+          object_from_response(self, Artsy::Client::Domain::Show, :get, "/api/v1/show/#{id}", {})
+        end
+
+        # Retrieves shows.
+        #
+        # @return [Array]
         def shows(options = {})
-          objects_from_response_feed(self, Artsy::Client::Domain::Show, :get, "/api/v1/shows/feed", options)
+          objects_from_response(self, Artsy::Client::Domain::Show, :get, "/api/v1/shows", options)
         end
       end
     end

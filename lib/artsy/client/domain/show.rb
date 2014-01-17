@@ -4,9 +4,12 @@ module Artsy
       class Show < Artsy::Client::Base
         include Artsy::Client::API::Parse
 
-        def artworks
-          @artworks ||= objects_from_array(instance,
-                                           Artsy::Client::Domain::Artwork, self[:artworks])
+        def artworks(options = {})
+          if self[:artworks]
+            @artworks ||= objects_from_array(instance, Artsy::Client::Domain::Artwork, self[:artworks])
+          elsif partner
+            @artworks ||= instance.send(:objects_from_response, instance, Artsy::Client::Domain::Artwork, :get, "/api/v1/partner/#{partner.id}/show/#{id}/artworks", options)
+          end
         end
 
         def partner
@@ -22,7 +25,7 @@ module Artsy
         end
 
         def name
-          self[:name].gsub(/[\n]+/, "\n").strip
+          self[:name].gsub(/[\n]+/, "\n").strip if self[:name]
         end
 
         def to_s
