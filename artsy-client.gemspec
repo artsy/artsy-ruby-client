@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/dblock/artsy-client"
   s.licenses = [ "MIT" ]
   s.summary = "Artsy API Ruby Client."
-  s.add_dependency "faraday"
+  s.add_dependency "faraday", ">= 0.9.0"
   s.add_dependency "multi_json"
   s.add_dependency "i18n"
   s.add_dependency "hashie"
