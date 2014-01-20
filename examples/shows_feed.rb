@@ -9,9 +9,12 @@ cursor = nil
 3.times do
   options = {}
   options[:cursor] = cursor if cursor
-  r = Artsy::Client.featured_posts(options)
-  r[:results].each do |post|
-    puts "#{post.title} by #{post.author}"
+  r = Artsy::Client.shows_feed(options)
+  r[:results].each do |show|
+    puts "#{show.name}"
+    show.artworks.each do |artwork|
+      puts "  #{artwork.title}, #{artwork.date}"
+    end
   end
   cursor = r[:next]
   break unless cursor

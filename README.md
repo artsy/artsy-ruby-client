@@ -109,7 +109,9 @@ Shows can be returned in a virtually infinite feed. Each response contains a set
 ``` ruby
 cursor = nil
 3.times do
-  r = Artsy::Client.shows({ cursor: cursor })
+  options = {}
+  options[:cursor] = cursor if cursor
+  r = Artsy::Client.shows_feed(options)
   r[:results].each do |show|
     puts "#{show.name}"
     show.artworks.each do |artwork|
@@ -129,7 +131,9 @@ Featured posts can be returned in a virtually infinite feed. Each response conta
 ``` ruby
 cursor = nil
 3.times do
-  r = Artsy::Client.featured_posts({ cursor: cursor })
+  options = {}
+  options[:cursor] = cursor if cursor
+  r = Artsy::Client.featured_posts(options)
   r[:results].each do |post|
     puts "#{post.title}"
   end

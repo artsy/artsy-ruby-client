@@ -5,15 +5,9 @@ require 'artsy-client'
 
 Artsy::Client.authenticate!
 
-cursor = nil
-3.times do
-  r = Artsy::Client.shows_feed(cursor: cursor)
-  r[:results].each do |show|
-    puts "#{show.name}"
-    show.artworks.each do |artwork|
-      puts "  #{artwork.title}, #{artwork.date}"
-    end
+Artsy::Client.shows(near: "40.72,-74.00", size: 3, status: :current, published_with_eligible_artworks: true).each do |show|
+  puts "#{show.name} at #{show.partner.name}"
+  show.artworks(size: 2).each do |artwork|
+    puts "  #{artwork.title}, #{artwork.date}"
   end
-  cursor = r[:next]
-  break unless cursor
 end
