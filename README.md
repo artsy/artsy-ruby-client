@@ -34,7 +34,17 @@ Artsy::Client.configure do |config|
 end
 ```
 
-This token can be obtained with `curl -v "https://artsy.net/oauth2/access_token?client_id=...&client_secret=...&email=...&password=...&grant_type=credentials&scope=offline_access"`.
+This token lasts for 25 years and can be obtained from the command-line.
+
+```
+curl -v "https://artsy.net/oauth2/access_token
+  ?client_id=...
+  &client_secret=...
+  &email=...
+  &password=...
+  &grant_type=credentials
+  &scope=offline_access"
+```
 
 The client also supports logging in with a username and password, however, using credentials sent in plain-text is not recommended.
 
