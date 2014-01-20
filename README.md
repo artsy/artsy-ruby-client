@@ -34,6 +34,21 @@ Artsy::Client.configure do |config|
 end
 ```
 
+This token can be obtained with `curl -v "https://artsy.net/oauth2/access_token?client_id=...&client_secret=...&email=...&password=...&grant_type=credentials&scope=offline_access"`.
+
+The client also supports logging in with a username and password, however, using credentials sent in plain-text is not recommended.
+
+``` ruby
+Artsy::Client.configure do |config|
+  config.client_id = ...
+  config.client_secret = ...
+  config.user_email = ...
+  config.user_password = ...
+end
+
+Artsy::Client.authenticate! # retrieves a short lived access_token
+```
+
 Is Artsy Up?
 ------------
 

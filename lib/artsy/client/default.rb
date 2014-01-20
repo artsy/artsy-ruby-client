@@ -61,6 +61,16 @@ module Artsy
         end
 
         # @return [String]
+        def user_email
+          ENV['ARTSY_USER_EMAIL']
+        end
+
+        # @return [String]
+        def user_password
+          ENV['ARTSY_USER_PASSWORD']
+        end
+
+        # @return [String]
         def endpoint
           ENDPOINT
         end

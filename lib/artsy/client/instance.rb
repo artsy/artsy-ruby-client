@@ -52,7 +52,16 @@ module Artsy
       def authenticate!
         configure!
         validate_credentials!
-        if @client_id && @client_secret
+        if @user_email && @user_password && @client_id && @client_secret
+          @logger.debug "GET /oauth2/access_token?client_id=#{CGI.escape(@client_id)}&client_secret=#{CGI.escape(@client_secret)}&email=#{CGI.escape(@user_email)}&password=********&grant_type=credentials" if @logger
+          @access_token = connection.send(:get, "/oauth2/access_token",
+                                          client_id: @client_id,
+                                          client_secret: @client_secret,
+                                          email: @user_email,
+                                          password: @user_password,
+                                          grant_type: :credentials
+          ).env[:body]["access_token"]
+        elsif @client_id && @client_secret
           @logger.debug "GET /api/v1/xapp_token?client_id=#{CGI.escape(@client_id)}&client_secret=#{CGI.escape(@client_secret)}" if @logger
           @xapp_token = connection.send(:get, "/api/v1/xapp_token",
                                         client_id: @client_id,

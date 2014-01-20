@@ -44,6 +44,40 @@ describe Artsy::Client do
       end
     end
   end
+  context "with user credentials" do
+    subject do
+      Artsy::Client::Instance.new(
+        client_id: "CI",
+        client_secret: "CS",
+        user_email: "user@example.com",
+        user_password: "password"
+      )
+    end
+    it "#authenticate!" do
+      stub_get("/oauth2/access_token?client_id=CI&client_secret=CS&email=user%40example.com&password=password&grant_type=credentials").to_return(
+        body: fixture("access_token.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+      subject.authenticate!
+      subject.instance_variable_get(:"@access_token").should == "access token"
+    end
+    context "with logger" do
+      before :each do
+        @io = StringIO.new
+        logger = Logger.new(@io)
+        logger.level = Logger::DEBUG
+        subject.logger = logger
+      end
+      it "logs connection attempts" do
+        stub_get("/oauth2/access_token?client_id=CI&client_secret=CS&email=user%40example.com&password=password&grant_type=credentials").to_return(
+          body: fixture("access_token.json"),
+          headers: { content_type: "application/json; charset=utf-8" }
+        )
+        subject.authenticate!
+        @io.string.should include "GET /oauth2/access_token?client_id=CI&client_secret=CS&email=user%40example.com&password=********&grant_type=credentials"
+      end
+    end
+  end
   context "configured instance" do
     subject do
       Artsy::Client::Instance.new(
@@ -75,9 +109,11 @@ describe Artsy::Client do
           @configuration = {
             connection_options: { timeout: 10 },
             access_token: 'AT2',
-            xapp_token: "XT2",
-            client_id: "CI2",
-            client_secret: "CS2",
+            xapp_token: 'XT2',
+            client_id: 'CI2',
+            client_secret: 'CS2',
+            user_email: 'user@example.com',
+            user_password: 'password',
             endpoint: 'http://tumblr.com/',
             middleware: proc {},
             logger: Logger.new(STDOUT)

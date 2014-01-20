@@ -5,7 +5,7 @@ module Artsy
     module Configurable
       extend Forwardable
 
-      attr_writer :access_token, :xapp_token, :client_id, :client_secret
+      attr_writer :access_token, :xapp_token, :client_id, :client_secret, :user_email, :user_password
       attr_accessor :endpoint, :connection_options, :middleware, :logger
       def_delegator :options, :hash
 
@@ -16,6 +16,8 @@ module Artsy
             :xapp_token,
             :client_id,
             :client_secret,
+            :user_email,
+            :user_password,
             :endpoint,
             :connection_options,
             :middleware,
@@ -52,6 +54,8 @@ module Artsy
           # access token gives a user login
         elsif @client_id && @client_secret
           # client id and secret give access to an xapp token
+        elsif @user_email && @user_password
+          # user email and user password give access to an access token
         else
           raise Artsy::Client::Errors::MissingCredentialsError.new
         end
