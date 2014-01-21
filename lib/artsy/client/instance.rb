@@ -9,6 +9,7 @@ module Artsy
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::Show
       include Artsy::Client::API::Show::Feed
+      include Artsy::Client::API::Page
       include Artsy::Client::API::Partner
       include Artsy::Client::API::Profile
       include Artsy::Client::API::Post
@@ -17,6 +18,7 @@ module Artsy
       include Artsy::Client::API::Feature
       include Artsy::Client::API::Gene
       include Artsy::Client::API::Tag
+      include Artsy::Client::API::User
 
       # Initializes a new client instance
       #
