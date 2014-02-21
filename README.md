@@ -101,6 +101,16 @@ Artsy::Client.recently_published_artworks({ :size => 3 }).each do |artwork|
 end
 ```
 
+Creating and Updating Artworks
+------------------------------
+
+Artworks must be created before they can be published.
+
+```ruby
+artwork = Artsy::Client.create_artwork(title: 'Mona Lisa')
+Artsy::Client.update_artwork(artwork.id, private: false, published: true)
+```
+
 Shows
 -----
 
@@ -151,6 +161,15 @@ Autocomplete search terms.
 Artsy::Client.autocomplete('andy warhol').each do |search_query|
   puts search_query.query
 end
+```
+
+Pages
+-----
+
+Create content pages.
+
+```ruby
+Artsy::Client.create_page(name: 'About', content: 'Foo bar baz.', published: true)
 ```
 
 Logging
