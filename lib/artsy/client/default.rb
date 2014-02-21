@@ -8,15 +8,15 @@ module Artsy
       CONNECTION_OPTIONS = {
         headers: {
           accept: 'application/json',
-          user_agent: "Artsy Client Ruby Gem #{Artsy::Client::VERSION}",
+          user_agent: "Artsy Client Ruby Gem #{Artsy::Client::VERSION}"
         },
         request: {
           open_timeout: 5,
-          timeout: 10,
+          timeout: 10
         },
         ssl: {
           verify: false
-        },
+        }
       } unless defined? Artsy::Client::Default::CONNECTION_OPTIONS
 
       MIDDLEWARE = Faraday::RackBuilder.new do |builder|

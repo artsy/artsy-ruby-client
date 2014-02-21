@@ -19,7 +19,7 @@ describe Artsy::Client::API::Artwork do
       expect(artwork.artist.name).to eq "Andy Warhol"
     end
   end
-  describe "#artworks" do
+  describe "#recently_published_artworks" do
     before do
       stub_get("/api/v1/artworks/new").to_return(
         body: fixture("artworks.json"),
@@ -32,6 +32,34 @@ describe Artsy::Client::API::Artwork do
       expect(artworks).to be_an Array
       expect(artworks.size).to eq 20
       expect(artworks.first.title).to eq "Coiffeuse"
+    end
+  end
+  describe "#create_artwork" do
+    before do
+      stub_post("/api/v1/artwork").to_return(
+        body: fixture("artwork.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns artwork" do
+      artwork = @client.create_artwork(title: 'Mona Lisa')
+      expect(a_post("/api/v1/artwork")).to have_been_made
+      expect(artwork).to be_an(Artsy::Client::Domain::Artwork)
+      expect(artwork.title).to eq('Skull')
+    end
+  end
+  describe "#update_artwork" do
+    before do
+      stub_put("/api/v1/artwork/andy-warhol-skull").to_return(
+        body: fixture("artwork.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns artwork" do
+      artwork = @client.update_artwork('andy-warhol-skull', title: 'Marilyn')
+      expect(a_put("/api/v1/artwork/andy-warhol-skull")).to have_been_made
+      expect(artwork).to be_an(Artsy::Client::Domain::Artwork)
+      expect(artwork.title).to eq('Skull')
     end
   end
 end
