@@ -9,5 +9,5 @@ group :development, :test do
   gem 'rspec', '>= 2.11'
   gem 'webmock'
   gem 'timecop'
-  gem 'rubocop', '~> 0.15.0'
+  gem 'rubocop', '~> 0.18'
 end
