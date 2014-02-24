@@ -7,6 +7,7 @@ module Artsy
       include Artsy::Client::API::Me
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
+      include Artsy::Client::API::ArtworkInquiryRequest
       include Artsy::Client::API::Show
       include Artsy::Client::API::Show::Feed
       include Artsy::Client::API::Page
