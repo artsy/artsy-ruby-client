@@ -20,4 +20,19 @@ describe Artsy::Client::API::ArtworkInquiryRequest do
       expect(artwork_inquiry_request.name).to eq "Ludvik Jahn"
     end
   end
+  describe "#artwork_inquiry_requests" do
+    before do
+      stub_get("/api/v1/artwork_inquiry_requests").to_return(
+        body: fixture("artwork_inquiry_requests.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns artwork inquiry requests" do
+      artwork_inquiry_requests = @client.artwork_inquiry_requests
+      expect(a_get("/api/v1/artwork_inquiry_requests")).to have_been_made
+      expect(artwork_inquiry_requests).to be_an Array
+      expect(artwork_inquiry_requests.size).to eq 1
+      expect(artwork_inquiry_requests.first.name).to eq "Ludvik Jahn"
+    end
+  end
 end
