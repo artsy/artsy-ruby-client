@@ -8,8 +8,10 @@ module Artsy
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::ArtworkInquiryRequest
+      include Artsy::Client::API::Sale
       include Artsy::Client::API::Show
       include Artsy::Client::API::Show::Feed
+      include Artsy::Client::API::OrderedSet
       include Artsy::Client::API::Page
       include Artsy::Client::API::Partner
       include Artsy::Client::API::Profile

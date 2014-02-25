@@ -10,10 +10,6 @@ module Artsy
           self[:model]
         end
 
-        def id
-          self[:id]
-        end
-
         def object
           @object ||= begin
             object = instance.send(model, id)

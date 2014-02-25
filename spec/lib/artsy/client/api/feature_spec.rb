@@ -18,4 +18,18 @@ describe Artsy::Client::API::Feature do
       expect(feature.name).to eq "TWO x TWO"
     end
   end
+  describe "#create_feature" do
+    before do
+      stub_post("/api/v1/feature").to_return(
+        body: fixture("feature.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns feature" do
+      feature = @client.create_feature(name: 'TWO x TWO')
+      expect(a_post("/api/v1/feature")).to have_been_made
+      expect(feature).to be_an(Artsy::Client::Domain::Feature)
+      expect(feature.name).to eq('TWO x TWO')
+    end
+  end
 end
