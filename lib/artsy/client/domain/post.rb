@@ -16,16 +16,8 @@ module Artsy
           end
         end
 
-        def title
-          self[:title]
-        end
-
         def summary
           self[:summary].strip
-        end
-
-        def body
-          self[:body]
         end
 
         def to_s
