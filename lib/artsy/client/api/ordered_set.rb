@@ -23,7 +23,8 @@ module Artsy
         # @return [Artsy::Client::Domain::OrderedSet]
         def add_to_ordered_set(id, params = {})
           set = ordered_set(id)
-          type_class = Object.const_get "Artsy::Client::Domain::#{set[:item_type]}"
+          # Ruby 1.9.3 cannot handle const_get for nested Classes (Ruby 2.0 can).
+          type_class = "Artsy::Client::Domain::#{set[:item_type]}".split("::").reduce(Object) { |a, e| a.const_get e }
           object_from_response(self, type_class, :post, "/api/v1/set/#{id}/item", params)
         end
       end
