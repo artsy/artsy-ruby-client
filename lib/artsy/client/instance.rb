@@ -12,6 +12,7 @@ module Artsy
       include Artsy::Client::API::ArtworkInventory
       include Artsy::Client::API::Show
       include Artsy::Client::API::Show::Feed
+      include Artsy::Client::API::Order
       include Artsy::Client::API::OrderedSet
       include Artsy::Client::API::Page
       include Artsy::Client::API::Partner
