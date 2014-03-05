@@ -32,6 +32,13 @@ module Artsy
           object_from_response(self, Artsy::Client::Domain::Artwork, :put, artwork_path(id), params)
         end
 
+        # Creates an inventory object for an artwork.
+        #
+        # @return [Artsy::Client::Domain::Inventory]
+        def update_artwork_inventory(id, params = {})
+          object_from_response(self, Artsy::Client::Domain::Inventory, :put, "/api/v1/artwork/#{id}/inventory", params)
+        end
+
         private
 
         def artwork_path(id)

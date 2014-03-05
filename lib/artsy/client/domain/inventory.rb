@@ -1,7 +1,7 @@
 module Artsy
   module Client
     module Domain
-      class ArtworkInventory < Artsy::Client::Base
+      class Inventory < Artsy::Client::Base
         def count
           self[:count]
         end
