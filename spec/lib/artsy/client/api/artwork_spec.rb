@@ -62,4 +62,18 @@ describe Artsy::Client::API::Artwork do
       expect(artwork.title).to eq('Skull')
     end
   end
+  describe "#update_artwork_inventory" do
+    before do
+      stub_put("/api/v1/artwork/andy-warhol-skull/inventory").to_return(
+        body: fixture("artwork_inventory.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns inventory for an artwork" do
+      artwork_inventory = @client.update_artwork_inventory('andy-warhol-skull')
+      expect(a_put("/api/v1/artwork/andy-warhol-skull/inventory")).to have_been_made
+      expect(artwork_inventory).to be_an Artsy::Client::Domain::Inventory
+      expect(artwork_inventory.count).to eq 1
+    end
+  end
 end
