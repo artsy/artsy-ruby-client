@@ -20,8 +20,8 @@ module Artsy
           @summary = create_summary(key, attributes)
           @resolution = create_resolution(key, attributes)
 
-          "\nProblem:\n  #{@problem}" +
-          "\nSummary:\n  #{@summary}" +
+          "\nProblem:\n  #{@problem}" \
+          "\nSummary:\n  #{@summary}" \
           "\nResolution:\n  #{@resolution}"
         end
 

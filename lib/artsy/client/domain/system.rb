@@ -4,7 +4,7 @@ module Artsy
       class System < Artsy::Client::Base
         def up?
           size > 0 && all? do |k, v|
-            !!v
+            v
           end
         end
 
@@ -20,7 +20,7 @@ module Artsy
 
         def method_missing(method_name, *args, &block)
           if method_name.to_s[-1..-1] == '?'
-            !!self[method_name.to_s[0..-2]]
+            self[method_name.to_s[0..-2]]
           else
             super
           end

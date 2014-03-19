@@ -12,7 +12,7 @@ Getting Started
 ===============
 
 ``` ruby
-require 'artsy-client'
+require 'artsy_client'
 ```
 
 Authenticate with a client ID and secret.

@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.setup(:default, :development)
 
-require 'artsy-client'
+require 'artsy_client'
 
 Artsy::Client.authenticate!
 
