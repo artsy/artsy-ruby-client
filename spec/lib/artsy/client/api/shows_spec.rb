@@ -48,4 +48,19 @@ describe Artsy::Client::API::Show do
       expect(shows.first.name).to eq "The Other Side and In Between"
     end
   end
+  describe "#shows sample" do
+    before do
+      stub_get("/api/v1/shows?sample=1").to_return(
+        body: fixture("shows_sample.1.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns one sampled show" do
+      shows = @client.shows(sample: 1)
+      expect(a_get("/api/v1/shows?sample=1")).to have_been_made
+      expect(shows).to be_an Array
+      expect(shows.size).to eq 1
+      expect(shows.first.name).to eq "Hoodwinked: Mike Kelley and Richard Prince"
+    end
+  end
 end
