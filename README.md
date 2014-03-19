@@ -133,6 +133,14 @@ cursor = nil
 end
 ```
 
+You can retrieve a sample show.
+
+``` ruby
+Artsy::Client.shows(sample: 1, status: :current, published_with_eligible_artworks: true).each do |show|
+  puts "#{show.name} at #{show.partner.name}"
+end
+```
+
 Featured Posts
 --------------
 
