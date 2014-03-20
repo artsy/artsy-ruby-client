@@ -4,11 +4,18 @@ module Artsy
       module Artwork
         include Artsy::Client::API::Parse
 
-        # Retrieves an artist.
+        # Retrieves an artwork.
         #
         # @return [Artsy::Client::Domain::Artwork]
         def artwork(id)
           object_from_response(self, Artsy::Client::Domain::Artwork, :get, artwork_path(id), {})
+        end
+
+        # Retrieves an artwork in text format.
+        #
+        # @return [String]
+        def artwork_txt(id, options = {})
+          request(:get, "#{artwork_path(id)}.txt", options)
         end
 
         # Retrieves recently published artworks.

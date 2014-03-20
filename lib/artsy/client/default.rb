@@ -3,7 +3,7 @@
 module Artsy
   module Client
     module Default
-      ENDPOINT = 'https://artsyapi.com' unless defined? Artsy::Client::Default::ENDPOINT
+      ENDPOINT = 'https://api.artsy.net' unless defined? Artsy::Client::Default::ENDPOINT
 
       CONNECTION_OPTIONS = {
         headers: {
@@ -72,7 +72,7 @@ module Artsy
 
         # @return [String]
         def endpoint
-          ENDPOINT
+          ENV['ARTSY_API_ENDPOINT'] || ENDPOINT
         end
 
         def connection_options

@@ -19,6 +19,42 @@ describe Artsy::Client::API::Artwork do
       expect(artwork.artist.name).to eq "Andy Warhol"
     end
   end
+  describe "#artwork.txt" do
+    before do
+      stub_get("/api/v1/artwork/andy-warhol-skull.txt").to_return(
+        body: fixture("artwork.txt"),
+        headers: { content_type: "text/plain" }
+      )
+    end
+    it "returns artwork in ascii format" do
+      artwork_txt = @client.artwork_txt('andy-warhol-skull')[:body]
+      expect(a_get("/api/v1/artwork/andy-warhol-skull.txt")).to have_been_made
+      expect(artwork_txt).to be_a String
+      expect(artwork_txt).to start_with "+----------"
+      expect(artwork_txt).to end_with "--------+"
+    end
+  end
+  describe "#artwork.to_ascii" do
+    before do
+      stub_get("/api/v1/artwork/andy-warhol-skull.txt").to_return(
+        body: fixture("artwork.txt"),
+        headers: { content_type: "text/plain" }
+      )
+      stub_get("/api/v1/artwork/andy-warhol-skull").to_return(
+        body: fixture("artwork.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns artwork in ascii format" do
+      artwork = @client.artwork('andy-warhol-skull')
+      expect(a_get("/api/v1/artwork/andy-warhol-skull")).to have_been_made
+      artwork_txt = artwork.to_ascii
+      expect(a_get("/api/v1/artwork/andy-warhol-skull.txt")).to have_been_made
+      expect(artwork_txt).to be_a String
+      expect(artwork_txt).to start_with "+----------"
+      expect(artwork_txt).to end_with "--------+"
+    end
+  end
   describe "#recently_published_artworks" do
     before do
       stub_get("/api/v1/artworks/new").to_return(
