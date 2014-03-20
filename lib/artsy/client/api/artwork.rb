@@ -18,13 +18,6 @@ module Artsy
           request(:get, "#{artwork_path(id)}.txt", options)
         end
 
-        # Retrieves recently published artworks.
-        #
-        # @return [Array]
-        def recently_published_artworks(options = {})
-          objects_from_response(self, Artsy::Client::Domain::Artwork, :get, "/api/v1/artworks/new", options)
-        end
-
         # Create an artwork.
         #
         # @return [Artsy::Client::Domain::Artwork]

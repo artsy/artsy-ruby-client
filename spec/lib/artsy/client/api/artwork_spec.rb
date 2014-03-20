@@ -55,21 +55,6 @@ describe Artsy::Client::API::Artwork do
       expect(artwork_txt).to end_with "--------+"
     end
   end
-  describe "#recently_published_artworks" do
-    before do
-      stub_get("/api/v1/artworks/new").to_return(
-        body: fixture("artworks.json"),
-        headers: { content_type: "application/json; charset=utf-8" }
-      )
-    end
-    it "returns artwork" do
-      artworks = @client.recently_published_artworks
-      expect(a_get("/api/v1/artworks/new")).to have_been_made
-      expect(artworks).to be_an Array
-      expect(artworks.size).to eq 20
-      expect(artworks.first.title).to eq "Coiffeuse"
-    end
-  end
   describe "#create_artwork" do
     before do
       stub_post("/api/v1/artwork").to_return(
