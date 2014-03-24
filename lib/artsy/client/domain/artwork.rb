@@ -15,6 +15,10 @@ module Artsy
         def to_s
           self[:display] || title
         end
+
+        def to_ascii(options = {})
+          @ascii ||= instance.artwork_txt(id, options)[:body]
+        end
       end
     end
   end

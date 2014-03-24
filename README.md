@@ -92,15 +92,6 @@ andy_warhol.artworks({ :size => 3 }).each do |artwork|
 end
 ```
 
-Recently Published Artworks
----------------------------
-
-``` ruby
-Artsy::Client.recently_published_artworks({ :size => 3 }).each do |artwork|
-  puts "#{artwork.title}, #{artwork.date} by #{artwork.artist.name}"
-end
-```
-
 Creating and Updating Artworks
 ------------------------------
 

@@ -1,0 +1,45 @@
++---------------------------------------------------------------------------------------------------+
+|ooo^oooooooo^oooooooooooooooooooooooooooooooooooooo%oo%o%ooo%oooooooooooooooooooo^ooo^ooooooooo^o^o|
+|o^ooo^^o^oooooooooooooooo%ooooooooooooooo%o%%o%%o%%%%%%%%%%%%oo%ooo%%o%o%o%o%ooooooooooo^oo^^ooooo^|
+|oooooooooooooooooo%oooooo%oooo%oo%o%o%o%oo%%%%o%%%o%%%%%%%%%%%%oooo%o%oo%oo%ooooooooooooooooooo^^oo|
+|oo^ooooooooooooooooooooooooo%oooooooooo%%o%%%%%%%  % %  %%%%%o%%%o%o%o%%%o%o%o%oooooooooooooooooooo|
+|oooooooooooooooooo%o%o%ooo%oo%o%%oo%%%o%%%                  %%%%%o%%%o%%o%%o%o%o%oooooooooooooooooo|
+|oooooooooooooooooooooooo%%o%%oo%o%oo%o%%                         %%oo%%%%%o%%%o%oo%oooooo%o%oooooo^|
+|ooooooooo%o%ooo%%oo%%o%oo%oooo%o%o%%%                              %%%%%%%o%%%%o%oo%oo%ooo%oooooooo|
+|oooooooooooo%o%ooo%oo%o%%o%oo%o%%%%%                                  %%%%%%%oo%o%%o%%o%%ooo%oooooo|
+|%oooooo%%ooo%o%o%o%%o%%oo%%%o%%%%%o%%%                                  %%%%%%%%%%o%o%o%o%o%o%oo%oo|
+|oo%o%ooo%o%oo%o%o%o%%o%o%o%%%%o%%%%o%%%%%                                %%%%%%%%oo%%%%o%o%oo%o%ooo|
+|o%oooo%oo%oo%%%%%%%%%%%%%%%%%%%%%%%%%%% %                                 %%%%%%%%%%%o%%o%o%%oooo%o|
+|oo%%oooo%o%%oo%%%%%%%%%%%%%%%%%%%%%% %%%                                  %%%%%%%%%%%%%%%o%%o%%%ooo|
+|%%%%%%%%%%%%%%%%%% %%%%%%%%  %%%%%%%%%%%%                                  %% %%%%%%%%%%%%%%%%%o%%o|
+|%o%o%%%%%%%%%% % %%   %%%  %%%%  % %%%%%%%%%%%%                            %%%%%%%%% %%%%%%%%%%o%o%|
+|%%%%%%%%%% %%%%% %%  %   %%  %%%%%%%%%% % %%%%o%                          %% %%%%% %%% %%%%%%%o%%oo|
+|%%%%% %% %%%  % % %o%ooo%%o% %%%%%%%%%%%%%%%%%%%%      %%%%%              % %% %%%%%%%%%%%%%%%%%%%%|
+|%%%% %% %% %%  % %^W^WWWWW^^%%%%%%%%    %%%%%%%%%%%%%  %%%%  %           % %%%  %  %%%%%%%%% %%%%%o|
+|% % % %% %%  %% %^^^^^^^^W^%%%%%%%%%    %%%%%%o%%%%%%% %%%%                % %%%%%%%  %  % %%%%%%o%|
+|%%%%%% %% %%%% %oWW^^^^W^^o%%%%%%%%%%%    %%%%%%%%%o%   %%% %           % % %  % %% %%%%%%%%%%%%%%%|
+|%  %  %  %    %oW^^WW^^^^o%%%%%%%%%%%%      %%%oo%%%    o%%% %         %%% % %% % % %  %%% %%%%%%%%|
+| %%%%% %% %%  ^WWWW^^ooo%o%%%%%%%%%%%%      %           %%             % %% % %%% %% %%% % % %%%%%o|
+|%%  %  % %  %^^^^ooo%%ooooo% %%%%%%%%%%%  %%%%%%%             %%%   %%% %  % % % %% %% %%%%%%%%%%%%|
+|% %%% % %   ^W^o%%oooooooooo%%%%%% %%%     %%%%%%o%       %%%%% %  %%  % %  %%   %% % %%%%%%%%%%%%%|
+|%%% %% %% %^^oo%oooooooooooo%% %%           %     %%      %%%%%   %% %%%% %%% %%% %%% % %% %%%%%%%%|
+|%%% % % %%o^%ooooooooooooooo%               %  %%%%%% % %%ooooo%o^o% %% %% % %% % %% % %%%%%%%%%%%o|
+|% %%%  % oo%oooooo%ooooooo%o%      %        %%%%%%   %  %%oo%oo^W^% %  %  %%% %%%% %%%%%%%% %%%%o%%|
+|%% %%%  %^%ooooooooooooooooo%%%%% %% %   % %% %%%%      %%ooo^WW^  %% %%% % %  % % % %% %%%%%%%%%oo|
+| % % %%%^^oooooooooooooooooo%%%%%%%%%%%%%%%%%%%%o%      ^W^WWW^% %%  %% %%% %%%%%%%%%%%%%%%%%%%%%%%|
+|%% %%  ^WW^ooooooooooooooooo %    %%%       %%%%%      %W^^^o%%% %%%% %  % % %% % %%%%%%%%%%%%%%o%%|
+|%%%%%%%^W^WW^^ooooooo^^ooooo                           %%%%%%  %%% %%%%%%% %%%%%%%% %%%%%%%%o%o%%oo|
+|%% %%%oW^W^^WWW^W^ooo^oooooo%%%%%                    % %% % %%%% %%  % %% %%%  %%%%%%%%%%o%o%%%ooo%|
+|%%%%% %^WWWWW^WWWooooooooo^oo% %%%             % % %%%%%%%%% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%oo%%oo|
+|%%%%%%%^WWWWWWWWWW^oooo^ooooo^%o            %%%%%%%  %% %% %% %%%%%%%%% %%%%%%%%%%%%%%%%%o%%oo%oooo|
+|%%%%%%%%oWWWWWWWWWWW^^^Wo^ooooo^o%%%%%%o^o%%%%%  %%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%o%o%o%oo%o%ooooo|
+|%o%%%%%%%o^WWWWWWWWWWWWWWWWWW^WW^WWWWWWWW%%%%%%%% %%%%%%% %%%%% %%%%%%%%%%%%%%o%%%%%%o%oo%o%ooooo%o|
+|o%%%%%%%o%%^^WWWWWWWWWWWWWWWWWWWWWWWWWWW% %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%o%%%%oo%o%%o%o%o%oo%ooo|
+|%%%o%%oo%%%%oo^^WWWWWWWWWWWWWWWWWWWWWWWo%%%%%%%%%%%%%%%%%%%%%%%%%%%%o%o%%oo%%oo%o%%%%%o%%oooooooooo|
+|%oo%o%%%%o%o%%%%%o^WWWWWWWWWWWWWWWWWWWo%%%%%%%%%%%%%%%%%%%%%%%%%%%o%%%%%o%%%o%%o%oooooooooo%%o%oooo|
+|%o%%o%%%o%%oo%%o%%%%oo^WWWWWWWWWWWWW^o%o%o%%%%%%%%o%o%%%%o%o%o%o%o%%o%o%%%oooo%%ooo%oo%oo%ooooooooo|
+|%%%o%%oo%o%%%%o%o%ooo%%o^WWWWWWWWWWo%%o%%%o%%oo%%%%o%oo%o%%o%%o%%ooo%o%ooo%o%ooo%ooo%o%ooo%o%o%oooo|
+|o%%%oo%o%o%%%o%oo%o%o%oo%%oo^WW^W^%%%o%o%%o%o%o%%oo%o%o%%oo%oo%ooo%o%o%oo%oooooooooooooooo%ooo%ooo%|
+|o%o%%%%%%ooo%oo%oo%ooo%oooo%o%o%ooooooo%oo%o%o%oo%o%%o%o%o%o%o%o%ooo%oooooo%o%ooooo%o%%o%oooo%ooooo|
+|%o%o%%ooo%%oo%ooo%oo%oooooooooooo%ooo%oo%oooo%ooo%oooo%oooo%ooooooo%ooooooooooooooooooo%%o%oooooooo|
++---------------------------------------------------------------------------------------------------+
