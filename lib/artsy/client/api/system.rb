@@ -19,6 +19,13 @@ module Artsy
         rescue
           false
         end
+
+        # Clear api cache
+        #
+        # @return [Artsy::Client::Domain::System]
+        def clear_cache
+          object_from_response(self, Artsy::Client::Domain::System, :delete, "/api/v1/system/cache", {})
+        end
       end
     end
   end
