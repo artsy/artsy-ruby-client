@@ -3,26 +3,26 @@ module Artsy
   module Client
     class Instance
       include Artsy::Client::Configurable
-      include Artsy::Client::API::System
-      include Artsy::Client::API::DelayedTask
-      include Artsy::Client::API::Me
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::ArtworkInquiryRequest
-      include Artsy::Client::API::Sale
-      include Artsy::Client::API::SaleArtwork
-      include Artsy::Client::API::Show
-      include Artsy::Client::API::Show::Feed
+      include Artsy::Client::API::DelayedTask
+      include Artsy::Client::API::Feature
+      include Artsy::Client::API::Gene
+      include Artsy::Client::API::Match
+      include Artsy::Client::API::Me
       include Artsy::Client::API::Order
       include Artsy::Client::API::OrderedSet
       include Artsy::Client::API::Page
       include Artsy::Client::API::Partner
-      include Artsy::Client::API::Profile
       include Artsy::Client::API::Post
+      include Artsy::Client::API::Profile
+      include Artsy::Client::API::Sale
+      include Artsy::Client::API::SaleArtwork
       include Artsy::Client::API::SearchQuery
-      include Artsy::Client::API::Match
-      include Artsy::Client::API::Feature
-      include Artsy::Client::API::Gene
+      include Artsy::Client::API::Show
+      include Artsy::Client::API::Show::Feed
+      include Artsy::Client::API::System
       include Artsy::Client::API::Tag
       include Artsy::Client::API::User
 
