@@ -4,6 +4,15 @@ describe Artsy::Client::API::System do
   before do
     @client = Artsy::Client::Instance.new
   end
+  describe "#clear_cache" do
+    before do
+      stub_delete("/api/v1/system/cache").to_return(body: fixture("cache.json"), headers: { content_type: "application/json; charset=utf-8" })
+    end
+    it "returns success status" do
+      status = @client.clear_cache
+      expect(status.status).to eq('success')
+    end
+  end
   describe "#up" do
     context "all up" do
       before do
