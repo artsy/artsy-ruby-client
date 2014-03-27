@@ -9,6 +9,7 @@ module Artsy
       include Artsy::Client::API::DelayedTask
       include Artsy::Client::API::Feature
       include Artsy::Client::API::Gene
+      include Artsy::Client::API::Invoice
       include Artsy::Client::API::Match
       include Artsy::Client::API::Me
       include Artsy::Client::API::Order
