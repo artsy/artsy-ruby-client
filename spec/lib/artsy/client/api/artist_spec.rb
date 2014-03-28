@@ -48,4 +48,18 @@ describe Artsy::Client::API::Artist do
       expect(artists.first.name).to eq "Georges Seurat"
     end
   end
+  describe "#create_artist" do
+    before do
+      stub_post("/api/v1/artist").to_return(
+        body: fixture("artist.json"),
+        headers: { content_type: "application/json; charset=utf-8" }
+      )
+    end
+    it "returns artist" do
+      artist = @client.create_artist(first: 'Andy', last: 'Warhol')
+      expect(a_post("/api/v1/artist")).to have_been_made
+      expect(artist).to be_an(Artsy::Client::Domain::Artist)
+      expect(artist.name).to eq('Andy Warhol')
+    end
+  end
 end
