@@ -46,18 +46,4 @@ describe Artsy::Client::API::Sale do
       expect(sale.name).to eq "TWO x TWO"
     end
   end
-  describe "#add_artwork_to_sale" do
-    before do
-      stub_post("/api/v1/sale/two-x-two/sale_artwork").to_return(
-        body: fixture("sale.json"),
-        headers: { content_type: "application/json; charset=utf-8" }
-      )
-    end
-    it "returns sale" do
-      sale = @client.add_artwork_to_sale('two-x-two', artwork_id: 'andy-warhol-skull')
-      expect(a_post("/api/v1/sale/two-x-two/sale_artwork")).to have_been_made
-      expect(sale).to be_an(Artsy::Client::Domain::Sale)
-      expect(sale.name).to eq('TWO x TWO')
-    end
-  end
 end

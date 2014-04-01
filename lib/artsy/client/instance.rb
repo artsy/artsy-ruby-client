@@ -9,6 +9,7 @@ module Artsy
       include Artsy::Client::API::Artwork
       include Artsy::Client::API::ArtworkInquiryRequest
       include Artsy::Client::API::Sale
+      include Artsy::Client::API::SaleArtwork
       include Artsy::Client::API::Show
       include Artsy::Client::API::Show::Feed
       include Artsy::Client::API::Order
