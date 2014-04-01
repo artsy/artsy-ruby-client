@@ -4,6 +4,7 @@ module Artsy
     class Instance
       include Artsy::Client::Configurable
       include Artsy::Client::API::System
+      include Artsy::Client::API::DelayedTask
       include Artsy::Client::API::Me
       include Artsy::Client::API::Artist
       include Artsy::Client::API::Artwork
