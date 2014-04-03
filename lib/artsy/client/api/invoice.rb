@@ -20,7 +20,6 @@ module Artsy
         def create_invoice_payment(id, params = {})
           object_from_response(self, Artsy::Client::Domain::InvoicePayment, :post, "/api/v1/invoice/#{id}/payment", params)
         end
-
       end
     end
   end
