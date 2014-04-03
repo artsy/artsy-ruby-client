@@ -1,0 +1,26 @@
+{
+  "state": "ready",
+  "total": "$12,300.45",
+  "total_cents": 1230045,
+  "line_items": [
+    {
+      "id": "517966b992cd4585e8000196",
+      "description": "The What by The Who (1, 2, 3-5)",
+      "quantity": 1,
+      "amount": "$10,000.00",
+      "amount_cents": 1000000,
+      "subtotal": "$10,000.00",
+      "subtotal_cents": 1000000
+    },
+    {
+      "id": "517966b992cd4585e8000196",
+      "description": "CA Sales Tax",
+      "quantity": 1,
+      "amount": "$2,300.45",
+      "amount_cents": 230045,
+      "subtotal": "$2,300.45",
+      "subtotal_cents": 230045
+    }
+  ],
+  "external_note": "Net 30"
+}
