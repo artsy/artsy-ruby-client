@@ -10,7 +10,7 @@ module Artsy
 
         def respond_to?(method_name)
           if method_name.to_s[-1..-1] == '?'
-            has_key?(method_name.to_s[0..-2])
+            key?(method_name.to_s[0..-2])
           else
             super
           end

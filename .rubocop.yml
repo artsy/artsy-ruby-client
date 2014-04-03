@@ -24,7 +24,7 @@ Encoding:
   # no need to always specify encoding
   Enabled: false
 
-HashMethods:
+DeprecatedHashMethods:
   # key? instead of has_key?
   # value? instead of has_value?
   Enabled: false
