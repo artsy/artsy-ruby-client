@@ -1,12 +1,12 @@
 Artsy::Client [![Build Status](https://travis-ci.org/artsy/artsy-ruby-client.png?branch=master)](https://travis-ci.org/artsy/artsy-ruby-client) [![Code Climate](https://codeclimate.com/github/artsy/artsy-ruby-client.png)](https://codeclimate.com/github/artsy/artsy-ruby-client)
 ===============
 
-A Ruby client for the [Artsy](http://artsy.net) API.
+A Ruby client for the [Artsy](http://artsy.net) APIv1.
 
 Important
 =========
 
-This is work in progress. Unfortunately, due to copyright issues we cannot let people use our API to display artworks anywhere outside of the Artsy site. We're working on it. Please email engineering@artsy.net if you would like to be notified when we launch our API program.
+This project is obsolete. We have since released a public API that no longer requires a specific artsy-ruby-client gem. Check out our public API at [developers.artsy.net](https://developers.artsy.net).
 
 Getting Started
 ===============
